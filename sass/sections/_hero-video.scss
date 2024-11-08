@@ -1,0 +1,30 @@
+@use "../base/variables" as *;
+
+.hero-video {
+    margin-bottom: 5rem;
+
+    @media (max-width: $bp-medium) {
+        margin-bottom: 0;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+
+        &.hero-video-desktop {
+            @media (max-width: $bp-medium) {
+                display: none;
+            }
+        }
+
+        &.hero-video-moobile {
+            display: none;
+
+            @media (max-width: $bp-medium) {
+                display: block;
+            }
+        }
+    }
+
+}

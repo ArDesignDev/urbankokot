@@ -1,0 +1,46 @@
+@use "../base/variables" as *;
+
+.references {
+    padding: 3rem 0 10rem;
+
+    .references-inner {
+        position: relative;
+        padding-top: 4rem;
+
+        @media (max-width: $bp-medium) {
+            margin: 0 -4rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 12rem;
+            height: 100%;
+            display: block;
+            left: 0;
+            top: 0;
+            background-image: url(../images/gradiant-left.svg);
+            z-index: 1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 12rem;
+            height: 100%;
+            display: block;
+            right: 0;
+            top: 0;
+            background-image: url(../images/gradiant-right.svg);
+            z-index: 1;
+        }
+    }
+
+    .references-slider-2 {
+        transform: rotate(180deg);
+
+        .slick-slide {
+            transform: rotate(180deg);
+        }
+    }
+}

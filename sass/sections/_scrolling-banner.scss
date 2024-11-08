@@ -1,0 +1,29 @@
+@use "../base/variables" as *;
+
+.scrolling-banner {
+    overflow-x: hidden;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+
+    @media (max-width: $bp-medium) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .scrolling-banner-inner {
+        background-color: $color-primary;
+        transform: scale(1.1) rotate(-2deg);
+        padding: 1rem 0;
+
+        p {
+            text-transform: uppercase;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            text-align: center;
+
+            @media (max-width: $bp-medium) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

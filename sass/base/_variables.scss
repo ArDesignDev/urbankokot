@@ -1,0 +1,21 @@
+@use "./font" as *;
+
+// COLORS
+$color-primary: #66FA7B;
+$color-dark: #222;
+$color-text: #222;
+
+// Font
+$font-primary: "Montserrat", sans-serif;
+$font-secondary: "Nurom Bold", sans-serif;
+$base-size: 2.4rem;
+$smaller-size: 1.8rem;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 87.5em;  // 1400px
+$bp-large: 70em;  // 1040px
+$bp-medium: 50em;   // 800px
+$bp-small: 37.5em;  // 600px
+
+// TRANSITION
+$transition: all 0.4s ease-in-out;
