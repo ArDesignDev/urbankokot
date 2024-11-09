@@ -1,4 +1,4 @@
-<section class="section section-services">
+<section class="section section-services" id="services">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 section-content">
@@ -19,12 +19,17 @@
                             <?php echo wp_kses_post($description); ?>
                         </div>
                     <?php endif;
-                     if ($cta = $about_content['services_cta']): ?>
-                        <div class="btn section-services-cta">
-                            <a href="<?php echo esc_url($cta['url']); ?>" target="_blank">
-                                <?php echo esc_html($cta['title']); ?>
-                            </a>
-                        </div>
+                     if ($cta = $about_content['services_cta']): ?>    
+                     <div class="section-services-cta">
+                        <a href="<?php echo esc_url($cta['url']); ?>" class="link">
+                            <span class="mask">
+                                <div class="link-container">
+                                <span class="link-title1 title"> <?php echo esc_html($cta['title']); ?></span>
+                                <span class="link-title2 title"> <?php echo esc_html($cta['title']); ?></span>
+                                </div>
+                            </span>
+                        </a>
+                    </div>
                     <?php endif;
                 endif; ?>
             </div>

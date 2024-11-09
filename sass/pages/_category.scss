@@ -59,10 +59,15 @@
         a {
             font-size: $base-size;
             font-weight: bold;
+            transition: $transition;
 
             @media (max-width: $bp-medium) {
                 font-size: 2rem;
                 padding: 1rem;
+            }
+
+            &:hover {
+                color: $color-primary;
             }
         }
 

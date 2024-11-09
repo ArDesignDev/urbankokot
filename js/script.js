@@ -236,6 +236,11 @@ function mobileMenu() {
       jQuery('.header-nav').toggleClass('header-nav-active');
       $this.toggleClass('menu-icon-close');
     });
+
+    jQuery('.menu-item').on('click', function() {
+      jQuery('.header-nav').removeClass('header-nav-active');
+      jQuery('.menu-icon').removeClass('menu-icon-close');
+    });
 }
 
 // split words
@@ -276,7 +281,7 @@ function animateOnScroll() {
     if(wScroll>about) {
         
         // animate img
-        jQuery('.about-section .section-image img, .about-section .pre-text').addClass('scrolled');
+        $('.about-section .section-image img, .about-section .pre-text').addClass('scrolled');
 
         // animate text
         animateText('about-section .pre-text span');
@@ -284,19 +289,20 @@ function animateOnScroll() {
 
      // service
      if(wScroll>service) {
-        // animate img
-        jQuery('.section-services .pre-text').addClass('scrolled');
 
-        // animate text
+         // animate text
+        $('.section-services .pre-text').addClass('scrolled');
         animateText('section-services .pre-text span');
+
+        // animate accordion
+        $('.section-services .accordion').addClass('scrolled');
      }
 
      // contact
     if(wScroll>contact) {
-        // animate img
-        jQuery('.section-contact .pre-text').addClass('scrolled');
 
         // animate text
+        $('.section-contact .pre-text').addClass('scrolled');
         animateText('section-contact .pre-text span');
     }
 }

@@ -1,11 +1,11 @@
-<section class="categories-section">
+<section class="categories-section" id="work">
     <div class="container">
         
         <!-- Category Navigation Header -->
         <section class="categories-section-header">
             <div class="row row-center">
                 <div class="col-sm-3">
-                    <h2 class="categories-section-title">Work</h2>
+                    <h2 class="categories-section-title"><?php echo the_field('work_title'); ?></h2>
                 </div>
                 <div class="col-sm-9 categories-section-header-nav">
                     <ul class="category-navigation">
@@ -53,11 +53,14 @@
                         <?php if ($category->description): ?>
                             <p class="category-description"><?php echo wp_kses_post($category->description); ?></p>
                         <?php endif; ?>
-                        <div class="btn">
-                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="category-link">
-                                View Projects
-                            </a>
-                        </div>
+                        <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="link category-link">
+                            <span class="mask">
+                                <div class="link-container">
+                                <span class="link-title1 title"><?php echo the_field('work_button_text'); ?></span>
+                                <span class="link-title2 title"><?php echo the_field('work_button_text'); ?></span>
+                                </div>
+                            </span>
+                        </a>
                     </div>
 
                 </div>

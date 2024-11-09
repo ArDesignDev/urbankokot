@@ -1,4 +1,4 @@
-<div class="references">
+<div class="references" id="references">
     <div class="container">
 
         <div class="references-header">

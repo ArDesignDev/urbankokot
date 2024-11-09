@@ -1,4 +1,4 @@
-<div class="hero-video">
+<div class="hero-video" id="hero">
 
 	<?php
 	// desktop video

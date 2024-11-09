@@ -216,3 +216,58 @@ $speed: 0.75s;
     opacity: 1;
     transform: translateY(0) rotateX(0);
 }
+
+$transition: all 0.3s ease-out;
+
+// button link replace text
+.link {
+    height: 3rem;
+    align-items: center;
+    color: $color-dark;
+    text-decoration: none;
+    display: flex;
+    max-width: fit-content;
+
+    .mask {
+        position: relative;
+        padding: 0;
+        height: 3rem;
+        overflow: hidden;
+
+        .link-container {
+            transition: $transition;
+
+            .title {
+                display: block;
+                font-size: 2.2rem;
+                line-height: 2.2rem;
+                transition: $transition;
+                border-bottom: 1px solid $color-dark;
+                padding-bottom: .5rem;
+
+                &.link-title1 {
+                    transform-origin: right center;
+                }
+
+                &.link-title2 {
+                    transform-origin: left center;
+                    transform: rotate(20deg);
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .link-container {
+            transform: translateY(-3rem) !important;
+        }
+
+        .link-title1 {
+            transform: rotate(20deg) !important;
+        }
+
+        .link-title2 {
+            transform: rotate(0) !important;
+        }
+    }
+}
