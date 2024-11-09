@@ -28,18 +28,24 @@ get_header();
 
 		<div class="container">
 			<?php if ( have_posts() ) : ?>
+				<div id="post-container">
+					<?php
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
+
+						get_template_part( 'template-parts/sections/project', get_post_type() );
+
+					endwhile; ?>
+				</div>
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			global $wp_query;
+			if ($wp_query->max_num_pages > 1) : ?>
+				<button id="load-more" class="btn-load-more" data-page="1">Load More</button>
+			<?php endif; ?>
 
-				get_template_part( 'template-parts/sections/project', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
+			<?php
 			else :
 
 				get_template_part( 'template-parts/content', 'none' );

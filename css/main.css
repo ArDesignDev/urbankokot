@@ -793,6 +793,25 @@ a:hover {
   transform: rotate(0) !important;
 }
 
+.btn-load-more {
+  border: 2px solid #222;
+  background-color: transparent;
+  border-radius: 2rem;
+  padding: 1.25rem 4rem;
+  color: #222;
+  font-size: 1.8rem;
+  border-radius: 3rem;
+  transition: all 0.3s ease-out;
+  margin: 3rem auto 4rem auto;
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-load-more:hover {
+  background-color: #66FA7B;
+  border-color: #66FA7B;
+}
+
 input[type=text],
 input[type=email],
 input[type=tel],
