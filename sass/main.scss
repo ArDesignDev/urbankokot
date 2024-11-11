@@ -16,6 +16,9 @@
 @use "components/buttons";
 @use "components/forms";
 @use "components/accordion";
+@use "components/slick";
+@use "components/loader-screen";
+@use "components/custom-video-player";
 
 // Sections (for standalone usage if needed)
 @use "sections/hero";
@@ -29,3 +32,4 @@
 // Page-specific styles
 @use "pages/home";
 @use "pages/category";
+@use "pages/error-404";

@@ -6,6 +6,7 @@ jQuery(document).ready(function($){
     scrollingBanner();
     referencesSlider();
     referencesSlider2();
+    videoSlider();
 
     customFormButton();
     backToTop();
@@ -15,6 +16,8 @@ jQuery(document).ready(function($){
     splitTextIntoSpans();
     animateOnScroll();
 
+    loader();
+    videoPlayer();
 });
 
 
@@ -23,6 +26,10 @@ jQuery(window).scroll(function($){
     animateOnScroll();
 });
 
+function loader() {
+    jQuery('.loader').fadeOut('fast');
+    jQuery('.loader-screen').delay(500).fadeOut('slow');
+}
 
 // Nav on scroll
 function navOnScroll() {
@@ -153,6 +160,39 @@ function referencesSlider2() {
     }
 }
 
+function videoSlider() {
+    if ($('.video-slider').length) { // Check if element exists
+        $('.video-slider').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 3,
+            arrows: true,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1500,
+                    settings: {
+                        slidesToShow: 3,
+                        speed: 4000,
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+    }
+}
+
 // accordian
 function accordion() {
     if (self.innerWidth) {
@@ -262,10 +302,9 @@ function splitTextIntoSpans() {
 function animateOnScroll() {
     const wScroll = jQuery(this).scrollTop();
 
-    const about = jQuery('.about-section').offset().top - 400;
-    const service = jQuery('.section-services').offset().top - 600;
-    const contact = jQuery('.section-contact').offset().top - 600;
-
+    const about = jQuery('.about-section').length ? jQuery('.about-section').offset().top - 400 : null;
+    const service = jQuery('.section-services').length ? jQuery('.section-services').offset().top - 600 : null;
+    const contact = jQuery('.section-contact').length ? jQuery('.section-contact').offset().top - 600 : null;
 
     function animateText(className) {
         jQuery(`.${className}`).each(function(i) {
@@ -305,4 +344,15 @@ function animateOnScroll() {
         $('.section-contact .pre-text').addClass('scrolled');
         animateText('section-contact .pre-text span');
     }
+}
+
+function videoPlayer() {
+    $('.play-button').click(function() {
+        const $this = $(this);
+        const $thisVideo = $this.parent().next();
+        const $thisWrapper = $this.parent();
+
+        $thisVideo[0].play();
+        $thisWrapper.fadeOut();
+    });
 }

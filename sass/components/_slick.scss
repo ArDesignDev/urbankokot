@@ -1,0 +1,115 @@
+@use "../base/variables" as *;
+
+.slick-track {
+    margin-left: unset !important;
+}
+
+.video-slider {
+    .slick-track  {
+        padding-bottom: 8rem;
+    }
+}
+
+// slick dots
+.slick-dots {
+    position: absolute;
+    bottom: 4rem;
+    right: 11rem;
+    list-style: none;
+
+    @media (max-width: $bp-medium) {
+        right: auto;
+        left: 0;
+        transform: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+        margin-left: 0;
+        opacity: .6;
+        border: none;
+        
+        button {
+            color: transparent;
+            background-color: transparent;
+            border: none !important;
+            width: 1.4rem;
+            height: 1.4rem;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            background-color: #7e7c7c;
+        }
+
+        &.slick-active {
+            opacity: 1;
+        }
+    }
+}
+
+// slick arrows
+.slick-prev,
+.slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: auto;
+    bottom: 1rem;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    z-index: 9;
+    transition: opacity .4s;
+    opacity: 1;
+    background-color: transparent;
+    border-radius: .5rem;
+
+    @media (max-width: $bp-medium) {
+        width: 3rem;
+        height: 3rem;;
+        bottom: 2rem;
+    }
+
+    
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        width: 4rem;
+        height: 4rem;
+        background-image: url(../images/arrow-right.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        @media (max-width: $bp-medium) {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+    }
+}
+
+
+.slick-prev {
+    left: 1rem;
+
+
+    &::before {
+        transform: translate(-50%, -50%) scale(-1);
+    }
+}
+
+.slick-next {
+    right: 1rem;
+}
