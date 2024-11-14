@@ -163,7 +163,7 @@ $speed: 0.75s;
         width: 17rem;
         height: 17rem;
         display: block;
-        background: $color-primary;
+        background: $color-dark;
         border-radius: 50%;
         opacity: 97%;
         transition: all .37s ;
@@ -173,6 +173,7 @@ $speed: 0.75s;
     &:hover {
         &::after {
             transform: scale(1.1);
+            background-color: $color-primary;
         }
     }
 }
@@ -190,20 +191,22 @@ $speed: 0.75s;
     backface-visibility: hidden;
     width: 16rem;
     font-weight: bold;
-    color: $color-dark;
-    background: $color-primary;
+
+    background: transparent;
 }
 
 /* Styling for the front text */
 .btn-flip-green .front {
     opacity: 1;
     transform: translateY(0) rotateX(0);
+    color: #fff;
 }
 
 /* Styling for the back text */
 .btn-flip-green .back {
     opacity: 0;
     transform: translateY(-50%) rotateX(90deg);
+    color: $color-dark;
 }
 
 /* Hover effect to flip between front and back */

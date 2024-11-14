@@ -66,5 +66,34 @@
         @media (max-width: $bp-medium) {
             justify-content: center;
         }
+
+        .footer-top-icon {
+            width: 4rem;
+            height: 4rem;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: $transition;
+            margin-left: 1rem;
+        }
+
+        a {
+            &:hover {
+                .footer-top-icon {
+                    background-color: $color-primary;
+                    border-color: $color-primary;
+
+                    svg{
+                        path {
+                            stroke: $color-dark;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

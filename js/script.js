@@ -18,13 +18,38 @@ jQuery(document).ready(function($){
 
     loader();
     videoPlayer();
+
+    checkFadeIn();
 });
 
 
 jQuery(window).scroll(function($){
     navOnScroll();
     animateOnScroll();
+    checkFadeIn();
 });
+
+function isInViewport(element) {
+    const elementTop = $(element).offset().top;
+    const elementBottom = elementTop + $(element).outerHeight();
+    const viewportTop = $(window).scrollTop();
+    const viewportBottom = viewportTop + $(window).height();
+    
+    // Define buffers for mobile and desktop
+    const isMobile = window.innerWidth < 640;
+    const topBuffer = isMobile ? 50 : 100;       // Adjust these values as needed
+    const bottomBuffer = isMobile ? 150 : 300;   // Adjust these values as needed
+
+    return elementBottom > viewportTop + topBuffer && elementTop < viewportBottom - bottomBuffer;
+}
+
+function checkFadeIn() {
+    $('.fade-in').each(function () {
+        if (isInViewport(this)) {
+            $(this).addClass('active');
+        }
+    });
+}
 
 function loader() {
     jQuery('.loader').fadeOut('fast');
@@ -303,6 +328,7 @@ function animateOnScroll() {
     const wScroll = jQuery(this).scrollTop();
 
     const about = jQuery('.about-section').length ? jQuery('.about-section').offset().top - 400 : null;
+    const aboutDesc = jQuery('.about-section .section-content').length ? jQuery('.about-section .section-content').offset().top - 600 : null;
     const service = jQuery('.section-services').length ? jQuery('.section-services').offset().top - 600 : null;
     const contact = jQuery('.section-contact').length ? jQuery('.section-contact').offset().top - 600 : null;
 
@@ -320,9 +346,12 @@ function animateOnScroll() {
     if(wScroll>about) {
         
         // animate img
-        $('.about-section .section-image img, .about-section .pre-text').addClass('scrolled');
+        $('.about-section .section-image img').addClass('scrolled');
 
-        // animate text
+     } 
+
+     if(wScroll>aboutDesc) {
+        $('.about-section .pre-text').addClass('scrolled')
         animateText('about-section .pre-text span');
      } 
 

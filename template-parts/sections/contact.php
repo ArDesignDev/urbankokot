@@ -23,11 +23,27 @@
 
                     <div class="section-content-info">
                         <?php if ($email = $contact_content['contact_email']): ?>
-                            <p><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p>
+                           
+                                <a href="mailto:<?php echo esc_attr($email); ?>" class="link contact-link">
+                                    <span class="mask">
+                                        <div class="link-container">
+                                            <span class="link-title1 title">  <?php echo esc_html($email); ?></span>
+                                            <span class="link-title2 title">  <?php echo esc_html($email); ?></span>
+                                        </div>
+                                    </span>
+                                </a>
+                           
                         <?php endif; ?>
 
                         <?php if ($phone = $contact_content['contact_phone']): ?>
-                            <p><a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a></p>
+                            <a href="mailto:<?php echo esc_attr($phone); ?>" class="link contact-link">
+                                <span class="mask">
+                                    <div class="link-container">
+                                        <span class="link-title1 title">  <?php echo esc_html($phone); ?></span>
+                                        <span class="link-title2 title">  <?php echo esc_html($phone); ?></span>
+                                    </div>
+                                </span>
+                            </a>
                         <?php endif; ?>
                     </div>
 

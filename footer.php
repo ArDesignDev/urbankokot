@@ -45,10 +45,47 @@
 			endif;
 			?>
 			<ul class="footer-social">
-				<?php if ($in_link): ?><li><a href="<?php echo $in_link_url; ?>" target="_blank"><?php echo $in_link_text; ?></a></li> <?php endif; ?>
-				<?php if ($yt_link): ?><li><a href="<?php echo $yt_link_url; ?>" target="_blank"><?php echo $yt_link_text; ?></a></li> <?php endif; ?>
-				<?php if ($ig_link): ?><li><a href="<?php echo $ig_link_url; ?>" target="_blank"><?php echo $ig_link_text; ?></a></li> <?php endif; ?>
-				<?php if ($fb_link): ?><li><a href="<?php echo $fb_link_url; ?>" target="_blank"><?php echo $fb_link_text; ?></a></li> <?php endif; ?>
+				<?php if ($in_link): ?><li>
+					<a href="<?php echo $in_link_url; ?>" target="_blank" class="link footer-link">
+						<span class="mask">
+							<div class="link-container">
+								<span class="link-title1 title">  <?php echo $in_link_text; ?></span>
+								<span class="link-title2 title">  <?php echo $in_link_text; ?></span>
+							</div>
+						</span>
+					</a>
+				</li> <?php endif; ?>
+				<?php if ($yt_link): ?><li>
+					<a href="<?php echo $yt_link_url; ?>" target="_blank" class="link footer-link">
+						<span class="mask">
+							<div class="link-container">
+								<span class="link-title1 title">  <?php echo $yt_link_text; ?></span>
+								<span class="link-title2 title">  <?php echo $yt_link_text; ?></span>
+							</div>
+						</span>
+					</a>
+				</li> <?php endif; ?>
+				<?php if ($ig_link): ?><li>
+					<a href="<?php echo $ig_link_url; ?>" target="_blank" class="link footer-link">
+						<span class="mask">
+							<div class="link-container">
+								<span class="link-title1 title"> <?php echo $ig_link_text; ?></span>
+								<span class="link-title2 title"> <?php echo $ig_link_text; ?></span>
+							</div>
+						</span>
+					</a>
+				</li> <?php endif; ?>
+				<?php if ($fb_link): ?><li>
+					<a href="<?php echo $fb_link_url; ?>" target="_blank" class="link footer-link">
+						<span class="mask">
+							<div class="link-container">
+								<span class="link-title1 title">  <?php echo $fb_link_text; ?></span>
+								<span class="link-title2 title">  <?php echo $fb_link_text; ?></span>
+							</div>
+						</span>
+					</a>
+				</li> <?php endif; ?>
+			
 			</ul>
 
 			</div>
@@ -56,9 +93,14 @@
 				<?php $backToTop = get_field('back_to_top', 'option'); ?>
 				<a href="javascript:;" class="back-to-top">
 					<?php if ($backToTop): ?>
-						<?php echo wp_kses_post($backToTop); ?>
+						<span><?php echo wp_kses_post($backToTop); ?></span>
+						<span class="footer-top-icon">
+							<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 20L12 4M12 4L18 10M12 4L6 10" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</span>
 						<?php else: ?>
-						Back to Top
+						<span> Back to Top</span>
 					<?php endif; ?>
 				</a>
 			</div>

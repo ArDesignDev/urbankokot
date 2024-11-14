@@ -196,6 +196,16 @@ a:hover {
     opacity: 1;
   }
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition: all 0.8s;
+}
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .header {
   position: fixed;
   z-index: 99;
@@ -291,7 +301,7 @@ a:hover {
     flex-direction: column;
     background-color: #fff;
     padding: 12rem 0 2rem;
-    height: 100vh;
+    height: 100%;
     justify-content: flex-start;
   }
 }
@@ -458,6 +468,26 @@ a:hover {
     justify-content: center;
   }
 }
+.footer .footer-top .footer-top-icon {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  margin-left: 1rem;
+}
+.footer .footer-top a:hover .footer-top-icon {
+  background-color: #66FA7B;
+  border-color: #66FA7B;
+}
+.footer .footer-top a:hover .footer-top-icon svg path {
+  stroke: #222;
+}
 
 .container {
   max-width: 140rem;
@@ -466,6 +496,17 @@ a:hover {
 }
 @media (max-width: 50em) {
   .container {
+    padding: 0 3rem;
+  }
+}
+
+.container-padding {
+  max-width: 150rem;
+  padding: 0 14rem;
+  margin: 0 auto;
+}
+@media (max-width: 50em) {
+  .container-padding {
     padding: 0 3rem;
   }
 }
@@ -701,7 +742,7 @@ a:hover {
   width: 17rem;
   height: 17rem;
   display: block;
-  background: #66FA7B;
+  background: #222;
   border-radius: 50%;
   opacity: 97%;
   transition: all 0.37s;
@@ -709,6 +750,7 @@ a:hover {
 }
 .btn-flip-green:hover::after {
   transform: scale(1.1);
+  background-color: #66FA7B;
 }
 
 .btn-flip-green .front,
@@ -724,20 +766,21 @@ a:hover {
   backface-visibility: hidden;
   width: 16rem;
   font-weight: bold;
-  color: #222;
-  background: #66FA7B;
+  background: transparent;
 }
 
 /* Styling for the front text */
 .btn-flip-green .front {
   opacity: 1;
   transform: translateY(0) rotateX(0);
+  color: #fff;
 }
 
 /* Styling for the back text */
 .btn-flip-green .back {
   opacity: 0;
   transform: translateY(-50%) rotateX(90deg);
+  color: #222;
 }
 
 /* Hover effect to flip between front and back */
@@ -1156,9 +1199,12 @@ option {
     padding: 0 0 2rem;
   }
 }
+.accordion .accordion-row.accordion-active .accordion-q h4 {
+  color: #66FA7B;
+}
 .accordion .accordion-row.accordion-active .accordion-q::before {
   transform: translateY(-50%) rotate(180deg);
-  background-image: url(../images/minus.svg);
+  background-image: url(../images/minus-primary.svg);
 }
 
 .slick-track {
@@ -1442,9 +1488,23 @@ option {
 .section.section-contact .section-content-info {
   padding-top: 4rem;
 }
+.section.section-contact .contact-link {
+  margin-bottom: 2rem;
+}
+.section.section-contact .contact-link .title {
+  border-bottom: 0;
+  font-size: 2.2rem;
+}
 
 .references {
   padding: 3rem 0 10rem;
+}
+.references .references-subtitle a {
+  color: #66FA7B;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease-out;
+  text-decoration: underline;
 }
 .references .references-inner {
   position: relative;
@@ -1537,17 +1597,11 @@ option {
 }
 .categories-section .category-item:nth-child(odd) .category-content {
   order: -1;
-}
-@media (max-width: 50em) {
-  .categories-section .category-item:nth-child(odd) .category-content {
-    order: 0;
-  }
-}
-.categories-section .category-item:nth-child(odd) .category-content {
   padding-right: 5rem;
 }
 @media (max-width: 50em) {
   .categories-section .category-item:nth-child(odd) .category-content {
+    order: 0;
     padding-right: 0;
   }
 }
@@ -1571,6 +1625,7 @@ option {
 .categories-section .category-item .category-content p {
   font-size: 1.8rem;
   line-height: 1.2;
+  margin-bottom: 3rem;
 }
 .categories-section .category-item .category-image figure {
   overflow: hidden;
@@ -1771,6 +1826,113 @@ option {
   .category .category-navigation .nav-right {
     margin-left: unset;
   }
+}
+
+.reviews .reviews-header {
+  position: relative;
+  height: 45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rem;
+  background-color: #fff;
+}
+@media (max-width: 50em) {
+  .reviews .reviews-header {
+    height: 28rem;
+    margin-bottom: 4rem;
+  }
+}
+.reviews .reviews-header .reviews-header-background {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  bottom: 0;
+  box-shadow: none;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.3;
+}
+.reviews .reviews-header-content {
+  position: relative;
+}
+.reviews .reviews-header-content h1 {
+  padding-top: 6rem;
+  margin-bottom: 0;
+}
+.reviews .review-item {
+  margin-top: 15rem;
+  position: relative;
+}
+@media (max-width: 50em) {
+  .reviews .review-item {
+    margin-top: 11rem;
+  }
+}
+.reviews .review-item:first-of-type {
+  opacity: 1 !important;
+}
+.reviews .review-item .review-text {
+  margin-bottom: 5rem;
+  position: relative;
+}
+.reviews .review-item .review-text::before, .reviews .review-item .review-text::after {
+  content: "";
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  background-image: url(../images/quots.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media (max-width: 50em) {
+  .reviews .review-item .review-text::before, .reviews .review-item .review-text::after {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+.reviews .review-item .review-text::before {
+  top: -4rem;
+  left: -14rem;
+}
+@media (max-width: 50em) {
+  .reviews .review-item .review-text::before {
+    left: -3rem;
+    top: -7rem;
+  }
+}
+.reviews .review-item .review-text::after {
+  bottom: -4rem;
+  right: -14rem;
+  transform: rotate(180deg);
+}
+@media (max-width: 50em) {
+  .reviews .review-item .review-text::after {
+    right: -3rem;
+    bottom: -7rem;
+  }
+}
+.reviews .review-item .review-text p {
+  font-style: italic;
+}
+.reviews .review-item .review-person {
+  font-weight: bold;
+  color: #66FA7B;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  line-height: 1;
+}
+.reviews .review-item .review-company {
+  text-align: center;
+  font-weight: bold;
 }
 
 .error-404 {

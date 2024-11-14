@@ -92,5 +92,13 @@
         .section-content-info {
             padding-top: 4rem;
         }
+
+        .contact-link {
+            margin-bottom: 2rem;
+            .title {
+                border-bottom: 0;
+                font-size: 2.2rem;
+            }
+        }
     }
 }

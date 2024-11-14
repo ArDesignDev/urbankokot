@@ -58,16 +58,10 @@
 
             .category-content {
                 order: -1;
-
-                @media (max-width: $bp-medium) {
-                    order: 0;
-                }
-            }
-
-            .category-content {
                 padding-right: 5rem;
 
                 @media (max-width: $bp-medium) {
+                    order: 0;
                     padding-right: 0;
                 }
             }
@@ -82,6 +76,7 @@
                 }
             }
         }
+
         .category-content {
 
             .category-title {
@@ -96,6 +91,7 @@
             p {
                 font-size: $smaller-size;
                 line-height: 1.2;
+                margin-bottom: 3rem;
             }
         }
 

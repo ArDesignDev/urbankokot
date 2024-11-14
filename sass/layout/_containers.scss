@@ -8,4 +8,16 @@
     @media (max-width: $bp-medium) {
         padding: 0 3rem;
     }
+
 }
+
+.container-padding {
+    max-width: 150rem;
+    padding: 0 14rem;
+    margin: 0 auto;
+
+    @media (max-width: $bp-medium) {
+        padding: 0 3rem;
+    }
+}
+

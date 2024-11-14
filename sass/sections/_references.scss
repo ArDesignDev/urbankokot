@@ -3,9 +3,21 @@
 .references {
     padding: 3rem 0 10rem;
 
+    .references-subtitle {
+        a {
+            color: $color-primary;
+            font-weight: bold;
+            position: relative;
+            transition: $transition;
+            text-decoration: underline;
+        }
+    }
+
     .references-inner {
         position: relative;
         padding-top: 4rem;
+
+
 
         @media (max-width: $bp-medium) {
             margin: 0 -4rem;

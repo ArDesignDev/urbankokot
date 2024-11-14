@@ -1,0 +1,120 @@
+@use "../base/variables" as *;
+
+.reviews {
+    // header
+    .reviews-header {
+        position: relative;
+        height: 45rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10rem;
+        background-color: #fff;
+
+        @media (max-width: $bp-medium) {
+            height: 28rem;
+            margin-bottom: 4rem;
+        }
+
+        .reviews-header-background {
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: none;
+            bottom: 0;
+            box-shadow: none;
+            height: 100%;
+            left: 0;
+            margin: 0;
+            object-fit: cover;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            opacity: .3;
+        }
+    }
+
+    .reviews-header-content {
+        position: relative;
+
+        h1 {
+            padding-top: 6rem;
+            margin-bottom: 0;
+        }
+    }
+
+    .review-item {
+        margin-top: 15rem;
+        position: relative;
+
+        @media (max-width: $bp-medium) {
+            margin-top: 11rem;
+        }
+
+       &:first-of-type {
+            opacity: 1 !important;
+       }
+
+        .review-text {
+            margin-bottom: 5rem;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 12rem;
+                height: 12rem;
+                background-image: url(../images/quots.webp);
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                @media (max-width: $bp-medium) {
+                    width: 7rem;
+                    height: 7rem;
+                }
+            }
+
+            &::before {
+                top: -4rem;
+                left: -14rem;
+
+                @media (max-width: $bp-medium) {
+                    left: -3rem;
+                    top: -7rem;
+                }
+            }
+    
+            &::after {       
+                bottom: -4rem;
+                right: -14rem;
+                transform: rotate(180deg);
+
+                @media (max-width: $bp-medium) {
+                    right: -3rem;
+                    bottom: -7rem;
+                }
+            }
+
+            p {
+                font-style: italic;
+            }
+        }
+    
+        .review-person {
+            font-weight: bold;
+            color: $color-primary;
+            text-align: center;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            line-height: 1;
+        }
+    
+        .review-company {
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+}

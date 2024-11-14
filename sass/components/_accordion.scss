@@ -107,9 +107,14 @@
         }
 
         &.accordion-active {
-            .accordion-q::before {
-                transform: translateY(-50%) rotate(180deg);
-                background-image: url(../images/minus.svg);
+            .accordion-q {
+                h4 {
+                    color: $color-primary;
+                }
+                &::before {
+                    transform: translateY(-50%) rotate(180deg);
+                    background-image: url(../images/minus-primary.svg);
+                }
             }
         }
     

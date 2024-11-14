@@ -48,7 +48,7 @@
                     <?php endif; ?>
 
                     <!-- Category Content -->
-                    <div class="col-sm-4 category-content">
+                    <div class="col-sm-4 category-content fade-in">
                         <h3 class="category-title"><?php echo esc_html($category->name); ?></h3>
                         <?php if ($category->description): ?>
                             <p class="category-description"><?php echo wp_kses_post($category->description); ?></p>

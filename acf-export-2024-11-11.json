@@ -395,7 +395,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0
     },
@@ -616,6 +616,125 @@
         "title": "Project Content",
         "fields": [
             {
+                "key": "field_67321e5aac561",
+                "label": "Multi videos",
+                "name": "multi_videos",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Checked this if you want multple horrizontal videos",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "On",
+                "ui_off_text": "Off",
+                "ui": 1
+            },
+            {
+                "key": "field_67321ea9ac562",
+                "label": "Project Videos",
+                "name": "project_videos",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_67321e5aac561",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Add Row",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_67321ec2ac563",
+                        "label": "Project Video Content",
+                        "name": "project_video_content",
+                        "aria-label": "",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_67321ed7ac564",
+                                "label": "Video Cover",
+                                "name": "video_cover",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "30",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "allow_in_bindings": 0,
+                                "preview_size": "medium"
+                            },
+                            {
+                                "key": "field_67321ee8ac565",
+                                "label": "Video File",
+                                "name": "video_file",
+                                "aria-label": "",
+                                "type": "file",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "70",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "library": "all",
+                                "min_size": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "allow_in_bindings": 0
+                            }
+                        ],
+                        "parent_repeater": "field_67321ea9ac562"
+                    }
+                ]
+            },
+            {
                 "key": "field_672dffb76c4b4",
                 "label": "Project video",
                 "name": "project_video",
@@ -623,7 +742,15 @@
                 "type": "file",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_67321e5aac561",
+                            "operator": "!=",
+                            "value": "1"
+                        }
+                    ]
+                ],
                 "wrapper": {
                     "width": "",
                     "class": "",
@@ -635,6 +762,40 @@
                 "max_size": "",
                 "mime_types": "",
                 "allow_in_bindings": 0
+            },
+            {
+                "key": "field_67321f5876ba1",
+                "label": "Project video cover",
+                "name": "project_video_cover",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_67321e5aac561",
+                            "operator": "!=",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "medium"
             },
             {
                 "key": "field_672e00066c4b5",
