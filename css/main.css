@@ -1902,6 +1902,11 @@ option {
   padding-top: 4rem;
   border-top: 2px solid #66FA7B;
 }
+@media (max-width: 50em) {
+  .reviews .review-item .review-text {
+    padding-top: 2rem;
+  }
+}
 .reviews .review-item .review-text::before, .reviews .review-item .review-text::after {
   content: "";
   position: absolute;
@@ -1924,7 +1929,7 @@ option {
 @media (max-width: 50em) {
   .reviews .review-item .review-text::before {
     left: -3rem;
-    top: -7rem;
+    top: -8rem;
   }
 }
 .reviews .review-item .review-text::after {
