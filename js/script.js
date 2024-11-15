@@ -29,6 +29,16 @@ jQuery(window).scroll(function($){
     checkFadeIn();
 });
 
+let resizeTimer;
+jQuery(window).on('resize', function($) {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        $('.scrolling-banner-slick').slick('setPosition');
+        $('.references-slider-1').slick('setPosition');
+        $('.references-slider-2').slick('setPosition');
+    }, 250); // Adjust the delay as needed
+});
+
 function isInViewport(element) {
     const elementTop = $(element).offset().top;
     const elementBottom = elementTop + $(element).outerHeight();

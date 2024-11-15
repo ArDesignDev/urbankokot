@@ -1120,7 +1120,7 @@ option {
 .accordion p {
   margin-bottom: 2rem;
   padding-bottom: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 .accordion ul, .accordion ol {
   padding-left: 2rem;
@@ -1507,11 +1507,21 @@ option {
   overflow-x: hidden;
 }
 .references .references-subtitle a {
-  color: #66FA7B;
-  font-weight: bold;
   position: relative;
+}
+.references .references-subtitle a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #66FA7B;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   transition: all 0.3s ease-out;
-  text-decoration: underline;
+}
+.references .references-subtitle a:hover::after {
+  width: 100%;
 }
 .references .references-inner {
   position: relative;
@@ -1889,6 +1899,8 @@ option {
 .reviews .review-item .review-text {
   margin-bottom: 5rem;
   position: relative;
+  padding-top: 4rem;
+  border-top: 2px solid #66FA7B;
 }
 .reviews .review-item .review-text::before, .reviews .review-item .review-text::after {
   content: "";

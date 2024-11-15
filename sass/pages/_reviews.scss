@@ -59,6 +59,8 @@
         .review-text {
             margin-bottom: 5rem;
             position: relative;
+            padding-top: 4rem;
+            border-top: 2px solid $color-primary;
 
             &::before,
             &::after {

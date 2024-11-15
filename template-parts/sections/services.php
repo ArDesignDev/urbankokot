@@ -42,7 +42,7 @@
                                     <h4><?php echo esc_html(get_sub_field('accordion_question')); ?></h4>
                                 </div>
                                 <div class="accordion-a">
-                                    <p><?php echo wp_kses_post(get_sub_field('accordion_answer')); ?></p>
+                                    <?php echo wp_kses_post(get_sub_field('accordion_answer')); ?>
                                 </div>
                             </div>
                         <?php endwhile; ?>
