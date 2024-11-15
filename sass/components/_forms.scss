@@ -219,7 +219,12 @@ option {
     font-size: 1.4rem;
     text-align: center;
     margin-top: 0rem;
-    display: none !important;
+    text-align: right;
+
+    @media (max-width: $bp-medium) {
+        text-align: center;
+        margin-top: 10rem !important;
+    }
 }
 
 .grecaptcha-badge { 

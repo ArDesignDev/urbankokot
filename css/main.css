@@ -1065,7 +1065,13 @@ option {
   font-size: 1.4rem;
   text-align: center;
   margin-top: 0rem;
-  display: none !important;
+  text-align: right;
+}
+@media (max-width: 50em) {
+  .wpcf7-response-output {
+    text-align: center;
+    margin-top: 10rem !important;
+  }
 }
 
 .grecaptcha-badge {
@@ -1498,6 +1504,7 @@ option {
 
 .references {
   padding: 3rem 0 10rem;
+  overflow-x: hidden;
 }
 .references .references-subtitle a {
   color: #66FA7B;
