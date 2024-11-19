@@ -20,6 +20,8 @@ jQuery(document).ready(function($){
     videoPlayer();
 
     checkFadeIn();
+
+    loadMorePost();
 });
 
 
@@ -27,16 +29,6 @@ jQuery(window).scroll(function($){
     navOnScroll();
     animateOnScroll();
     checkFadeIn();
-});
-
-let resizeTimer;
-jQuery(window).on('resize', function($) {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-        $('.scrolling-banner-slick').slick('setPosition');
-        $('.references-slider-1').slick('setPosition');
-        $('.references-slider-2').slick('setPosition');
-    }, 250); // Adjust the delay as needed
 });
 
 function isInViewport(element) {
@@ -197,36 +189,47 @@ function referencesSlider2() {
 
 function videoSlider() {
     if ($('.video-slider').length) { // Check if element exists
-        $('.video-slider').slick({
-            dots: false,
-            infinite: true,
-            slidesToShow: 3,
-            arrows: true,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 1500,
-                    settings: {
-                        slidesToShow: 3,
-                        speed: 4000,
+        $('.video-slider').each(function () {
+            const $this = $(this);
+
+            // Check if slider is already initialized
+            if ($this.hasClass('slick-initialized')) {
+                $this.slick('unslick'); // Destroy the existing slider
+            }
+
+            // Reinitialize slick slider
+            $this.slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 3,
+                arrows: true,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1500,
+                        settings: {
+                            slidesToShow: 3,
+                            speed: 4000,
+                        }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                        }
                     }
-                },
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                }
-            ]
+                ]
+            });
         });
     }
 }
+
 
 // accordian
 function accordion() {
@@ -393,5 +396,50 @@ function videoPlayer() {
 
         $thisVideo[0].play();
         $thisWrapper.fadeOut();
+    });
+}
+
+function loadMorePost() {
+    // Use .off() to prevent duplicate event bindings
+    $('#load-more').off('click').on('click', function () {
+        let button = $(this);
+        let page = button.data('page'); // Get the current page
+        let newPage = page + 1; // Increment the page number
+
+        // Change button text to "Loading..."
+        button.text('Loading...');
+
+        $.ajax({
+            url: ajax_url,
+            type: 'POST',
+            data: {
+                action: 'load_more_posts',
+                page: newPage,
+            },
+            success: function (data) {
+                if (data) {
+                    // Append new posts to the container
+                    $('#post-container').append(data);
+
+                    // Update the page number on the button
+                    button.data('page', newPage);
+
+                    // Revert button text back to "Load More"
+                    button.text('Load More');
+
+                    // Reinitialize videoPlayer and videoSlider
+                    videoPlayer();
+                    videoSlider();
+                } else {
+                    // Remove the button if no more posts
+                    button.remove();
+                }
+            },
+            error: function () {
+                alert('Something went wrong, please try again.');
+                // Revert button text back to "Load More" in case of error
+                button.text('Load More');
+            }
+        });
     });
 }
