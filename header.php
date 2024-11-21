@@ -38,24 +38,31 @@
 				the_custom_logo();
 				if ( is_front_page() && is_home() ) :
 					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<img src="<?php echo esc_url( get_template_directory_uri() );?>/images/header-logo.svg" alt="Urban Kokot Logo">
 					<?php
 				else :
 					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_template_directory_uri() );?>/images/header-logo.svg" alt="Urban Kokot Logo"></a>
 					<?php
 				endif; ?>
 			</div><!-- .header-logo -->
 
 			<nav id="site-navigation" class="header-nav nav-toggle">
-					<?php
+				<?php if ( is_front_page() ) :
 					wp_nav_menu(
 						array(
 							'theme_location' => 'menu-1',
 							'menu_id'        => 'primary-menu',
 						)
 					);
-					?>
+				else :
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-2',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+				endif; ?>
 			</nav><!-- #site-navigation -->
 
 			<div class="header-cta">

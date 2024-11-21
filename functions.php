@@ -50,6 +50,7 @@ function aquaar_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'aquaar' ),
+			'menu-2' => esc_html__( 'Category', 'aquaar' ),
 			'cta' => esc_html__( 'CTA', 'aquaar' ),
 		)
 	);
