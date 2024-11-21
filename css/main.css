@@ -404,6 +404,10 @@ a:hover {
   width: 20px;
 }
 
+.category .current-menu {
+  display: none;
+}
+
 .footer {
   background-color: #222;
   color: #fff;

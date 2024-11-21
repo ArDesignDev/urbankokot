@@ -223,3 +223,10 @@
     }
 
 }
+
+// category remove active nav
+.category {
+    .current-menu {
+        display: none;
+    }
+}
