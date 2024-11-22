@@ -13,7 +13,7 @@ function aquaar_script_enqueue() {
     wp_enqueue_style('aquaar-style', get_stylesheet_uri(), array(), _S_VERSION);
     wp_enqueue_style('Montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     wp_enqueue_style('Slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css', array(), '1.0.0', 'all');
-    wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/main.min.css', array(), '1.0.6', 'all');
+    wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/main.min.css', array(), '1.0.7', 'all');
 
     // Enqueue scripts
     wp_deregister_script('jquery');
@@ -28,7 +28,7 @@ function aquaar_script_enqueue() {
 
     // Enqueue custom script
     //wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.6', true);
-    wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.min.js', array('jquery'), '1.1.7', true);
+    wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.min.js', array('jquery'), '1.1.8', true);
 
     // Localize the custom script for AJAX usage
     wp_localize_script('customjs', 'ajax_url', admin_url('admin-ajax.php'));
