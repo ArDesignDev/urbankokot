@@ -7,6 +7,7 @@ jQuery(document).ready(function($){
     referencesSlider();
     referencesSlider2();
     videoSlider();
+    videoSliderSingle();
 
     customFormButton();
     backToTop();
@@ -230,6 +231,28 @@ function videoSlider() {
     }
 }
 
+function videoSliderSingle() {
+    if ($('.video-slider-single').length) { // Check if element exists
+        $('.video-slider-single').each(function () {
+            const $this = $(this);
+
+            // Check if slider is already initialized
+            if ($this.hasClass('slick-initialized')) {
+                $this.slick('unslick'); // Destroy the existing slider
+            }
+
+            // Reinitialize slick slider
+            $this.slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 1,
+                arrows: true,
+                slidesToScroll: 1,
+            });
+        });
+    }
+}
+
 
 // accordian
 function accordion() {
@@ -430,6 +453,7 @@ function loadMorePost() {
                     // Reinitialize videoPlayer and videoSlider
                     videoPlayer();
                     videoSlider();
+                    videoSliderSingle();
                 } else {
                     // Remove the button if no more posts
                     button.remove();

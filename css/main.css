@@ -1750,6 +1750,7 @@ option {
 @media (max-width: 50em) {
   .project .project-content .project-title {
     border: none;
+    padding-top: 0;
   }
 }
 .project .project-content .project-desc p {
@@ -1774,6 +1775,21 @@ option {
 }
 .project .video-slider .video-slider-item {
   padding: 1rem;
+}
+.project .video-slider-single .slick-list {
+  padding-bottom: 9rem;
+}
+@media (max-width: 50em) {
+  .project .video-slider-single .slick-list {
+    padding-bottom: 9rem;
+  }
+}
+
+.project-content-wide.project-content {
+  padding-left: 1rem !important;
+}
+.project-content-wide + .project-video {
+  order: 1 !important;
 }
 
 .category .category-header {

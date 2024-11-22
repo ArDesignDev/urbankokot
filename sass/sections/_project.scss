@@ -45,6 +45,7 @@
 
             @media (max-width: $bp-medium) {
                 border: none;
+                padding-top: 0;
             }
         }
 
@@ -81,5 +82,25 @@
         .video-slider-item {
             padding: 1rem;
         }
+    }
+
+    .video-slider-single {
+        .slick-list {
+            padding-bottom: 9rem;
+
+            @media (max-width: $bp-medium) {
+                padding-bottom: 9rem;
+            }
+        }
+    }
+}
+
+.project-content-wide {
+    &.project-content {
+        padding-left: 1rem !important;
+    }
+
+    & + .project-video {
+        order: 1 !important;
     }
 }
