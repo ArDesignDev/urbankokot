@@ -39,6 +39,19 @@
     text-align: center;
 }
 
+.desktop {
+    @media (max-width: $bp-medium) {
+        display: none;
+    }
+}
+
+.mobile {
+    
+    @media (min-width: $bp-medium) {
+        display: none;
+    }
+}
+
 .mobile-last {
     @media (max-width: $bp-medium) {
         order: 10;

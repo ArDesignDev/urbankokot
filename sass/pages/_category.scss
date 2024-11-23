@@ -89,6 +89,12 @@
             font-size: $base-size;
             font-weight: bold;
             transition: $transition;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 3rem;
+            }
 
             @media (max-width: $bp-medium) {
                 font-size: 2rem;
@@ -103,8 +109,23 @@
         .nav-right {
             margin-left: auto;
 
+            a {
+                img {
+                    margin-left: 2rem;
+                }
+            }
+
             @media (max-width: $bp-medium) {
                 margin-left: unset;
+            }
+        }
+
+        .nav-left {
+            a {
+                img {
+                    margin-right: 2rem;
+                    transform: scale(-1);
+                }
             }
         }
     }

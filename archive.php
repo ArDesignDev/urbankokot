@@ -14,8 +14,12 @@ get_header();
 		
 		<header class="category-header">
 			<span aria-hidden="true" 
-				class="category-header-background"
+				class="category-header-background desktop"
 				style="background-image:url('<?php echo esc_url(get_field('category_background_image', 'option')); ?>');">
+			</span>
+			<span aria-hidden="true" 
+				class="category-header-background mobile"
+				style="background-image:url('<?php echo esc_url(get_field('category_background_image_mobile', 'option')); ?>');">
 			</span>
 			<div class="category-header-content">
 				<?php

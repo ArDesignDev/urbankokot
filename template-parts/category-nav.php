@@ -27,12 +27,12 @@ $next_category = $categories[$next_index];
 <div class="category-navigation">
     <div class="nav-left">
         <a href="<?php echo esc_url(get_category_link($prev_category->term_id)); ?>">
-            ← <?php echo esc_html($prev_category->name); ?>
+         <img src="<?php echo get_template_directory_uri(); ?>/images/arrow-right.png" alt="arrow"> <?php echo esc_html($prev_category->name); ?>
         </a>
     </div>
     <div class="nav-right">
         <a href="<?php echo esc_url(get_category_link($next_category->term_id)); ?>">
-            <?php echo esc_html($next_category->name); ?> →
+            <?php echo esc_html($next_category->name); ?> <img src="<?php echo get_template_directory_uri(); ?>/images/arrow-right.png" alt="arrow">
         </a>
     </div>
 </div>
