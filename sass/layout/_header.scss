@@ -16,7 +16,8 @@
         padding: 0 2rem;
     }
 
-    &.scrolled {
+    &.scrolled,
+    &.header-active {
         background-color: #fff;
         border: none;
         padding-top: 0;

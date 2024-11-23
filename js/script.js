@@ -336,11 +336,14 @@ function mobileMenu() {
 
       jQuery('.header-nav').toggleClass('header-nav-active');
       $this.toggleClass('menu-icon-close');
+
+      jQuery('.header').toggleClass('header-active');
     });
 
     jQuery('.menu-item').on('click', function() {
       jQuery('.header-nav').removeClass('header-nav-active');
       jQuery('.menu-icon').removeClass('menu-icon-close');
+      jQuery('.header').removeClass('header-active');
     });
 }
 
