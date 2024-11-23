@@ -370,6 +370,7 @@ function animateOnScroll() {
     const aboutDesc = jQuery('.about-section .section-content').length ? jQuery('.about-section .section-content').offset().top - 600 : null;
     const service = jQuery('.section-services').length ? jQuery('.section-services').offset().top - 600 : null;
     const contact = jQuery('.section-contact').length ? jQuery('.section-contact').offset().top - 600 : null;
+    const references = jQuery('.references').length ? jQuery('.references').offset().top - 400 : null;
 
     function animateText(className) {
         jQuery(`.${className}`).each(function(i) {
@@ -411,6 +412,10 @@ function animateOnScroll() {
         // animate text
         $('.section-contact .pre-text').addClass('scrolled');
         animateText('section-contact .pre-text span');
+    }
+
+    if(wScroll>references) {
+        $('.references-subtitle a').addClass('scrolled');
     }
 }
 

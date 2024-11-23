@@ -1544,8 +1544,18 @@ option {
   transform: translateX(-50%);
   transition: all 0.3s ease-out;
 }
+@media (max-width: 50em) {
+  .references .references-subtitle a.scrolled::after {
+    transition: all 1.2s;
+  }
+}
 .references .references-subtitle a:hover::after {
   width: 100%;
+}
+@media (max-width: 50em) {
+  .references .references-subtitle a.scrolled::after {
+    width: 100%;
+  }
 }
 .references .references-inner {
   position: relative;

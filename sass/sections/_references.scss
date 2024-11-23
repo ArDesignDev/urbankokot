@@ -20,10 +20,28 @@
                 transition: $transition;
             }
 
+            &.scrolled {
+                &::after {
+
+                    @media (max-width: $bp-medium) {                        
+                        transition: all 1.2s;
+                    }
+                }
+            }
+
             &:hover {
                 &::after {
                     width: 100%;
                 }
+            }
+
+            &.scrolled {
+                @media (max-width: $bp-medium) {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+ 
             }
         }
     }
