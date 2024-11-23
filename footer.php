@@ -45,6 +45,16 @@
 			endif;
 			?>
 			<ul class="footer-social">
+				<?php if ($ig_link): ?><li>
+					<a href="<?php echo $ig_link_url; ?>" target="_blank" class="link footer-link">
+						<span class="mask">
+							<div class="link-container">
+								<span class="link-title1 title"> <?php echo $ig_link_text; ?></span>
+								<span class="link-title2 title"> <?php echo $ig_link_text; ?></span>
+							</div>
+						</span>
+					</a>
+				</li> <?php endif; ?>
 				<?php if ($in_link): ?><li>
 					<a href="<?php echo $in_link_url; ?>" target="_blank" class="link footer-link">
 						<span class="mask">
@@ -65,16 +75,7 @@
 						</span>
 					</a>
 				</li> <?php endif; ?>
-				<?php if ($ig_link): ?><li>
-					<a href="<?php echo $ig_link_url; ?>" target="_blank" class="link footer-link">
-						<span class="mask">
-							<div class="link-container">
-								<span class="link-title1 title"> <?php echo $ig_link_text; ?></span>
-								<span class="link-title2 title"> <?php echo $ig_link_text; ?></span>
-							</div>
-						</span>
-					</a>
-				</li> <?php endif; ?>
+
 				<?php if ($fb_link): ?><li>
 					<a href="<?php echo $fb_link_url; ?>" target="_blank" class="link footer-link">
 						<span class="mask">

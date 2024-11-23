@@ -3,6 +3,11 @@
 .project {
     margin-bottom: 10rem;
 
+    @media (max-width: $bp-medium) {
+        border-bottom: 2px solid $color-dark;
+        margin-bottom: 3rem
+    }
+
     &:nth-of-type(even) {
 
         .project-video {
@@ -36,6 +41,10 @@
     }
 
     .project-content {
+
+        @media (max-width: $bp-medium) {
+            order: -1;
+        }
 
         .project-title {
             padding-top: 3rem;
@@ -98,6 +107,10 @@
 .project-content-wide {
     &.project-content {
         padding-left: 1rem !important;
+
+        @media (max-width: $bp-medium) {
+            padding-left: 0 !important;
+        }
     }
 
     & + .project-video {

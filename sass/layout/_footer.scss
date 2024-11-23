@@ -47,13 +47,9 @@
         align-items: center;
         justify-content: center;
 
-        @media (max-width: $bp-medium) {
-            flex-wrap: wrap;
-        }
-
-        a {
+        a .title {
             @media (max-width: $bp-medium) {
-                font-size: 2rem;
+                font-size: 1.6rem !important;
             }
         }
     }

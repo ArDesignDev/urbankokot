@@ -65,7 +65,6 @@
                 background-size: contain;
                 background-repeat: no-repeat;
                 opacity: 1;
-                transition: all .6s;
          
             
                 @media (max-width: $bp-medium) {
@@ -91,6 +90,7 @@
     
                 @media (max-width: $bp-medium) {
                     font-size: 2rem;
+                    line-height: 1;
                 }
             }
         }
@@ -112,7 +112,6 @@
                     color: $color-primary;
                 }
                 &::before {
-                    transform: translateY(-50%) rotate(180deg);
                     background-image: url(../images/minus-primary.svg);
                 }
             }

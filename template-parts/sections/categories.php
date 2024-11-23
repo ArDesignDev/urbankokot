@@ -35,20 +35,23 @@
             $category_image_id = get_term_meta($category->term_id, 'category_image', true);
             $category_image_url = $category_image_id ? wp_get_attachment_image_url($category_image_id, 'large') : '';
         ?>
-            <div class="category-item" id="<?php echo $category_slug; ?>">
+            <div class="category-item fade-in" id="<?php echo $category_slug; ?>">
                 <div class="row">
 
                     <!-- Category Image -->
                     <?php if ($category_image_url): ?>
                         <div class="col-sm-8 category-image">
-                            <figure>
-                                <img src="<?php echo esc_url($category_image_url); ?>" alt="<?php echo esc_attr($category->name); ?>" loading="lazy">
-                            </figure>
+                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
+                       
+                                <figure>
+                                    <img src="<?php echo esc_url($category_image_url); ?>" alt="<?php echo esc_attr($category->name); ?>" loading="lazy">
+                                </figure>
+                            </a>
                         </div>
                     <?php endif; ?>
 
                     <!-- Category Content -->
-                    <div class="col-sm-4 category-content fade-in">
+                    <div class="col-sm-4 category-content">
                         <h3 class="category-title"><?php echo esc_html($category->name); ?></h3>
                         <?php if ($category->description): ?>
                             <p class="category-description"><?php echo wp_kses_post($category->description); ?></p>
