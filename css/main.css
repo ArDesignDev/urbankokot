@@ -1182,13 +1182,16 @@ option {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  transform: translate3d(0, -50%, 0) rotate(-180deg);
   width: 2.5rem;
   height: 2rem;
   background-image: url(../images/plus.svg);
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 1;
+  transition: all 0.3s ease-out;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 @media (max-width: 50em) {
   .accordion .accordion-row .accordion-q::before {
@@ -1231,6 +1234,7 @@ option {
 }
 .accordion .accordion-row.accordion-active .accordion-q::before {
   background-image: url(../images/minus-primary.svg);
+  transform: translate3d(0, -50%, 0) rotate(0deg);
 }
 
 .slick-track {
@@ -1913,8 +1917,12 @@ option {
   display: flex;
   align-items: center;
 }
-.category .category-navigation a img {
+.category .category-navigation a svg {
   width: 3rem;
+  height: auto;
+}
+.category .category-navigation a svg path {
+  transition: all 0.3s ease-out;
 }
 @media (max-width: 50em) {
   .category .category-navigation a {
@@ -1925,10 +1933,13 @@ option {
 .category .category-navigation a:hover {
   color: #66FA7B;
 }
+.category .category-navigation a:hover svg path {
+  fill: #66FA7B;
+}
 .category .category-navigation .nav-right {
   margin-left: auto;
 }
-.category .category-navigation .nav-right a img {
+.category .category-navigation .nav-right a svg {
   margin-left: 2rem;
 }
 @media (max-width: 50em) {
@@ -1936,7 +1947,7 @@ option {
     margin-left: unset;
   }
 }
-.category .category-navigation .nav-left a img {
+.category .category-navigation .nav-left a svg {
   margin-right: 2rem;
   transform: scale(-1);
 }

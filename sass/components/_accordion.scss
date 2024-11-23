@@ -58,13 +58,16 @@
                 position: absolute;
                 top: 50%;
                 right: 0;
-                transform: translateY(-50%);
+                transform: translate3d(0, -50%, 0) rotate(-180deg);
                 width: 2.5rem;
                 height: 2rem;
                 background-image: url(../images/plus.svg);
                 background-size: contain;
                 background-repeat: no-repeat;
                 opacity: 1;
+                transition: $transition;
+                backface-visibility: hidden;
+                 will-change: transform;
          
             
                 @media (max-width: $bp-medium) {
@@ -113,6 +116,7 @@
                 }
                 &::before {
                     background-image: url(../images/minus-primary.svg);
+                    transform: translate3d(0, -50%, 0) rotate(0deg);
                 }
             }
         }

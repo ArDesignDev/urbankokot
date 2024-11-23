@@ -92,8 +92,13 @@
             display: flex;
             align-items: center;
 
-            img {
+            svg {
                 width: 3rem;
+                height: auto;
+                
+                path {
+                    transition: $transition;
+                }
             }
 
             @media (max-width: $bp-medium) {
@@ -103,6 +108,12 @@
 
             &:hover {
                 color: $color-primary;
+
+                svg {
+                    path {
+                        fill: $color-primary;
+                    }
+                }
             }
         }
 
@@ -110,7 +121,7 @@
             margin-left: auto;
 
             a {
-                img {
+                svg {
                     margin-left: 2rem;
                 }
             }
@@ -122,7 +133,7 @@
 
         .nav-left {
             a {
-                img {
+                svg {
                     margin-right: 2rem;
                     transform: scale(-1);
                 }
