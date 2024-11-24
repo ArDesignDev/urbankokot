@@ -6,6 +6,7 @@ function load_more_posts() {
     $args = array(
         'post_type' => 'post', // Change 'post' to your custom post type if needed
         'paged' => $paged,
+        'post_status' => 'publish',
     );
 
     $query = new WP_Query($args);

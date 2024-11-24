@@ -91,12 +91,19 @@
         background-image: url(../images/arrow-right.png);
         background-size: contain;
         background-repeat: no-repeat;
+        transition: $transition;
 
         @media (max-width: $bp-medium) {
             width: 3rem;
             height: 3rem;
         }
         
+    }
+
+    &:hover {
+        &::before {
+            background-image: url(../images/arrow-right-green.png);
+        }
     }
 }
 
