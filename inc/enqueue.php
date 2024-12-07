@@ -28,7 +28,7 @@ function aquaar_script_enqueue() {
 
     // Enqueue custom script
     //wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.6', true);
-    wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.min.js', array('jquery'), '1.2.0', true);
+    wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.min.js', array('jquery'), '1.2.1', true);
 
     // Localize the custom script for AJAX usage
     wp_localize_script('customjs', 'ajax_url', admin_url('admin-ajax.php'));
