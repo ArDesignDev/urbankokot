@@ -2,12 +2,18 @@
 
 function load_more_posts() {
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $categories = isset($_POST['categories']) ? array_map('intval', $_POST['categories']) : []; // Accept categories from the AJAX request
 
     $args = array(
         'post_type' => 'post', // Change 'post' to your custom post type if needed
         'paged' => $paged,
         'post_status' => 'publish',
     );
+
+    // Filter by categories if specified
+    if (!empty($categories)) {
+        $args['category__in'] = $categories;
+    }
 
     $query = new WP_Query($args);
 
@@ -30,3 +36,4 @@ function load_more_posts() {
 }
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
