@@ -431,13 +431,12 @@ function videoPlayer() {
 }
 
 function loadMorePost() {
-    // Use .off() to prevent duplicate event bindings
     $('#load-more').off('click').on('click', function () {
         let button = $(this);
         let page = button.data('page'); // Get the current page
         let newPage = page + 1; // Increment the page number
+        let category = button.data('category'); // Get the category (ID or slug)
 
-        // Change button text to "Loading..."
         button.text('Loading...');
 
         $.ajax({
@@ -446,30 +445,22 @@ function loadMorePost() {
             data: {
                 action: 'load_more_posts',
                 page: newPage,
+                category: category, // Pass the category to the server
             },
             success: function (data) {
-                if (data) {
-                    // Append new posts to the container
+                if ($.trim(data)) {
                     $('#post-container').append(data);
-
-                    // Update the page number on the button
                     button.data('page', newPage);
-
-                    // Revert button text back to "Load More"
                     button.text('Load More');
-
-                    // Reinitialize videoPlayer and videoSlider
                     videoPlayer();
                     videoSlider();
                     videoSliderSingle();
                 } else {
-                    // Remove the button if no more posts
                     button.remove();
                 }
             },
             error: function () {
                 alert('Something went wrong, please try again.');
-                // Revert button text back to "Load More" in case of error
                 button.text('Load More');
             }
         });

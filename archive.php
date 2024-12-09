@@ -44,9 +44,13 @@ get_header();
 				</div>
 
 			<?php
+
+			$category = get_queried_object();
+			$category_slug = $category->slug;
+
 			global $wp_query;
 			if ($wp_query->max_num_pages > 1) : ?>
-				<button id="load-more" class="btn-load-more" data-page="1">Load More</button>
+				<button id="load-more" class="btn-load-more" data-page="1" data-category="<?php echo esc_attr($category_slug); ?>">Load More</button>
 			<?php endif; ?>
 
 			<?php

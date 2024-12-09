@@ -14,6 +14,9 @@
 
 get_header();
 ?>
+<div class="loader-screen">
+	<div class="loader"></div>
+</div>
 
 	<main id="primary" class="site-main">
 		

@@ -2,17 +2,18 @@
 
 function load_more_posts() {
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
-    $categories = isset($_POST['categories']) ? array_map('intval', $_POST['categories']) : []; // Accept categories from the AJAX request
+    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
 
     $args = array(
-        'post_type' => 'post', // Change 'post' to your custom post type if needed
+        'post_type' => 'post',
         'paged' => $paged,
         'post_status' => 'publish',
     );
 
-    // Filter by categories if specified
-    if (!empty($categories)) {
-        $args['category__in'] = $categories;
+    // Add category filter if category is provided
+    if (!empty($category)) {
+        $args['category_name'] = $category; // For category slug
+        // Or use 'cat' => intval($category) if passing category ID
     }
 
     $query = new WP_Query($args);
@@ -24,16 +25,14 @@ function load_more_posts() {
         }
         wp_reset_postdata();
 
-        // Check if there are more posts to load
         if ($paged >= $query->max_num_pages) {
-            echo '<script>jQuery("#load-more").remove();</script>'; // Remove button if no more posts
+            echo '<script>jQuery("#load-more").remove();</script>';
         }
     } else {
-        echo ''; // No more posts
+        echo '<div>No more posts to load</div>'; // Clear indication for debugging
     }
 
     wp_die();
 }
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
-
