@@ -175,3 +175,26 @@ require get_template_directory() . '/inc/load-more-posts.php';
  * Admin styling
  */
 require get_template_directory() . '/inc/admin-styling.php';
+
+
+/**
+ * Redirect from single post to category
+ */
+function redirect_single_post_to_category() {
+    // Only run on single posts
+    if ( is_single() && !is_admin() ) {
+        $categories = get_the_category();
+        // Check if we have categories assigned
+        if ( !empty($categories) && !is_wp_error($categories) ) {
+            // Get the first category
+            $first_cat = $categories[0];
+            // Get the category link
+            $cat_link = get_category_link($first_cat->term_id);
+            
+            // Perform a 301 permanent redirect to the category archive
+            wp_redirect($cat_link, 301);
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'redirect_single_post_to_category');

@@ -420,13 +420,22 @@ function animateOnScroll() {
 }
 
 function videoPlayer() {
-    $('.play-button').click(function() {
+    $('.play-button').on('click', function () {
         const $this = $(this);
-        const $thisVideo = $this.parent().next();
-        const $thisWrapper = $this.parent();
-
-        $thisVideo[0].play();
-        $thisWrapper.fadeOut();
+        const $wrapper = $this.closest('.custom-video-wrapper');
+        const $video = $wrapper.find('.custom-video');
+        const $source = $video.find('source');
+        const $overlay = $wrapper.find('.video-overlay');
+    
+        // Set the video source dynamically from data-src
+        if ($source.attr('data-src') && !$source.attr('src')) {
+            $source.attr('src', $source.attr('data-src'));
+            $video[0].load(); // Reload video after setting the src
+        }
+    
+        // Play the video and hide the overlay
+        $video[0].play();
+        $overlay.fadeOut(); // Hide the custom play button and background
     });
 }
 

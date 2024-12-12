@@ -52,11 +52,21 @@
 					?>
 						<?php if ($video_file_multi): ?>
 							<div class="video-slider-item">
-								<div class="custom-video-wrapper">
+								<div class="custom-video-wrapper-vertical custom-video-wrapper <?php 
+										$video_orientation = get_field('video_dimension');
+									
+										if ($video_orientation == 'Horizontal video') {
+											echo 'horizontal';
+										} elseif ($video_orientation == 'Vertical video') {
+											echo 'vertical';
+										} elseif ($video_orientation == 'Square video') {
+											echo 'square';
+										}
+									?>">
 									<!-- Overlay with Custom Play Button and Background -->
 									<div class="video-overlay" style="background-image:url('<?php echo esc_url($video_cover_multi); ?>')">
 
-										<button id="custom-play-button" class="play-button">
+										<button id="custom-play-button-1" class="play-button">
 											<svg fill="#66FA7B" height="60px" width="60px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 												viewBox="0 0 60 60" xml:space="preserve">
 												<g>
@@ -69,9 +79,9 @@
 											</svg>
 										</button>
 									</div>
-									<!-- Video Element with Controls Hidden Initially -->
+
 									<video class="custom-video" preload="metadata" controls>
-										<source src="<?php echo esc_url($video_file_multi['url']); ?>" type="video/mp4">
+										<source data-src="<?php echo esc_url($video_file_multi['url']); ?>" type="video/mp4">
 									</video>
 
 								</div>
@@ -100,11 +110,22 @@
 					?>
 						<?php if ($video_file_multi2): ?>
 							<div class="video-slider-item">
-								<div class="custom-video-wrapper">
+							<div class="custom-video-wrapper <?php 
+										$video_orientation = get_field('video_dimension');
+									
+										if ($video_orientation == 'Horizontal video') {
+											echo 'horizontal';
+										} elseif ($video_orientation == 'Vertical video') {
+											echo 'vertical';
+										} elseif ($video_orientation == 'Square video') {
+											echo 'square';
+										}
+									?>">
 									<!-- Overlay with Custom Play Button and Background -->
+
 									<div class="video-overlay" style="background-image:url('<?php echo esc_url($video_cover_multi2); ?>')">
 
-										<button id="custom-play-button" class="play-button">
+										<button id="custom-play-button-2" class="play-button">
 											<svg fill="#66FA7B" height="60px" width="60px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 												viewBox="0 0 60 60" xml:space="preserve">
 												<g>
@@ -117,9 +138,9 @@
 											</svg>
 										</button>
 									</div>
-									<!-- Video Element with Controls Hidden Initially -->
+
 									<video class="custom-video" preload="metadata" controls>
-										<source src="<?php echo esc_url($video_file_multi2['url']); ?>" type="video/mp4">
+										<source data-src="<?php echo esc_url($video_file_multi2['url']); ?>" type="video/mp4">
 									</video>
 
 								</div>

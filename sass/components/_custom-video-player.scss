@@ -1,5 +1,42 @@
+@use "../base/variables" as *;
+
 .custom-video-wrapper {
     position: relative;
+
+    &.horizontal {
+        height: 49rem;
+
+        @media (max-width: $bp-small) {
+            height: 49vw;
+        }
+    }
+    
+    &.vertical {
+        height: 70rem;
+    }
+
+    &.square {
+        height: 60rem;
+        max-width: 60rem;
+        margin-left: auto;
+        margin-right: auto;
+
+        
+        @media (max-width: $bp-small) {
+            height: 39rem;
+        }
+    }
+
+    &-vertical {
+        &.square {
+            height: 43rem;
+
+            @media (max-width: $bp-small) {
+                height: 39rem;
+            }
+        }
+    }
+
 
     .video-overlay {
         position: absolute;
@@ -10,6 +47,7 @@
         background-color: rgba(0, 0, 0, 1);
         z-index: 1;
         background-size: cover;
+
 
         .play-button {
             background-color: transparent;
